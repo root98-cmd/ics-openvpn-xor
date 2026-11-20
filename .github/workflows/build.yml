@@ -21,7 +21,7 @@ jobs:
           sdkmanager "platform-tools" "platforms;android-33" "build-tools;33.0.2" "ndk;23.1.7779620" "cmake;3.22.1"
           sudo apt-get update && sudo apt-get install -y swig
       - name: Build
-        run: ./gradlew assembleUiDebug
+        run: ./gradlew assembleUiDebug -Dorg.gradle.jvmargs="-Xmx4g -XX:MaxMetaspaceSize=1g"
       - uses: actions/upload-artifact@v4
         with:
           name: apk
